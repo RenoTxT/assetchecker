@@ -85,8 +85,8 @@ async function submitData() {
     const { data, error: updateError } = await supabase
       .from('assets') // <-- Ubah 'assets' menjadi 'assetchecker'
       .update({
-        '"MODEL"': inputModel.value,
-        '"REMARKS"': inputRemarks.value
+        'MODEL': inputModel.value,
+        'REMARKS': inputRemarks.value
       })
       .eq('"ASSET NO"', assetId.value)
 // ...
@@ -155,9 +155,6 @@ function confirmAndGoBack() {
         <strong>ACQ. DATE:</strong>
         <span>{{ asset['ACQ. DATE'] || '-' }}</span>
       </div>
-
-      <hr class="separator" />
-
       <form @submit.prevent="submitData" class="data-form">
         <div v-if="isModelPreFilled" class="info-item">
           <strong>MODEL:</strong>
