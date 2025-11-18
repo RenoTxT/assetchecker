@@ -29,7 +29,7 @@ onMounted(async () => { // <-- Jadikan async
   try {
     // 2. Ini adalah pengganti Papa.parse (Query READ)
     const { data, error: fetchError } = await supabase
-      .from('assetchecker') // <-- Ubah 'assets' menjadi 'assetchecker'
+      .from('assets') // <-- Ubah 'assets' menjadi 'assetchecker'
       .select('*') 
       .eq('"ASSET NO"', assetId.value) 
       .single()
@@ -83,7 +83,7 @@ async function submitData() {
     
     // GANTI NAMA TABEL DI SINI JUGA
     const { data, error: updateError } = await supabase
-      .from('assetchecker') // <-- Ubah 'assets' menjadi 'assetchecker'
+      .from('assets') // <-- Ubah 'assets' menjadi 'assetchecker'
       .update({
         '"MODEL"': inputModel.value,
         '"REMARKS"': inputRemarks.value
