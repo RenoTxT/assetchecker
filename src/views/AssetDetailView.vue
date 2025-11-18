@@ -29,10 +29,10 @@ onMounted(async () => { // <-- Jadikan async
   try {
     // 2. Ini adalah pengganti Papa.parse (Query READ)
     const { data, error: fetchError } = await supabase
-      .from('assets') // Nama tabel Anda
-      .select('*') // Ambil semua kolom
-      .eq('"ASSET NO"', assetId.value) // Cari yang 'ASSET NO' = ID dari URL
-      .single() // Hanya ambil 1 baris
+      .from('assetchecker') // <-- Ubah 'assets' menjadi 'assetchecker'
+      .select('*') 
+      .eq('"ASSET NO"', assetId.value) 
+      .single()
 
     if (fetchError) {
       // Jika tidak ditemukan atau ada error
@@ -79,13 +79,17 @@ async function submitData() {
 
   try {
     // 3. Ini adalah pengganti fetch (Query UPDATE)
+    // ... di dalam async function submitData() { ...
+    
+    // GANTI NAMA TABEL DI SINI JUGA
     const { data, error: updateError } = await supabase
-      .from('assets') // Nama tabel
+      .from('assetchecker') // <-- Ubah 'assets' menjadi 'assetchecker'
       .update({
-        '"MODEL"': inputModel.value, // Data yang ingin di-update
+        '"MODEL"': inputModel.value,
         '"REMARKS"': inputRemarks.value
       })
-      .eq('"ASSET NO"', assetId.value) // Di baris mana?
+      .eq('"ASSET NO"', assetId.value)
+// ...
 
     if (updateError) {
       // Jika Gagal update
