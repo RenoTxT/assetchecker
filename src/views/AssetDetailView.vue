@@ -211,8 +211,6 @@ function confirmAndGoBack() {
         </div>
 
         <div v-if="submitMessage" :class="['submit-status', submitMessage.type]">
-          <p>{{ submitMessage.text }}</p>
-          
           <button 
             @click="confirmAndGoBack" 
             type="button" 
