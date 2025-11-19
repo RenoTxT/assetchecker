@@ -204,12 +204,6 @@ function confirmAndGoBack() {
           </div>
         </div>
 
-        <div class="button-group" v-if="!submitMessage">
-          <button type="submit" class="submit-button" :disabled="isSubmitting">
-            {{ isSubmitting ? 'Menyimpan...' : 'Submit Data' }}
-          </button>
-        </div>
-
         <div v-if="submitMessage" :class="['submit-status', submitMessage.type]">
           <button 
             @click="confirmAndGoBack" 
